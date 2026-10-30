@@ -58,3 +58,7 @@ $l4 = new Livre('9780596007126', 'Algo Avance', 'Cormen');
 $bib->ajouter($l4);
 $res4 = $bib->rechercher('algo');
 verifier(count($res4) === 2, 'rechercher("algo") trouve 2 livres');
+// Test : taux de disponibilite
+verifier($bib->tauxDisponibilite() == 100, 'tauxDisponibilite() retourne 100 si tous les livres sont disponibles');
+$l1->emprunter();
+verifier($bib->tauxDisponibilite() == 75, 'tauxDisponibilite() retourne 75 apres un emprunt');
