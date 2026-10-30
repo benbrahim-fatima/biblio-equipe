@@ -75,7 +75,7 @@ class Bibliotheque
         }
         $dispo = 0;
         foreach ($this->livres as $livre) {
-            if (!$livre->estDisponible()) {
+            if ($livre->estDisponible()) {
                 $dispo++;
             }
         }
